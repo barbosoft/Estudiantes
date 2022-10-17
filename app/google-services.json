@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137210535639",
+    "project_id": "estudiante-831bd",
+    "storage_bucket": "estudiante-831bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137210535639:android:da11f24cfe57d989ec5a92",
+        "android_client_info": {
+          "package_name": "com.estudiantes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137210535639-hv0fsqj4k6ongodegn0cs0p02tp3l8hu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLe4ZHXEL4TSFlmojpFFfXu1oNPOu15Ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137210535639-hv0fsqj4k6ongodegn0cs0p02tp3l8hu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
