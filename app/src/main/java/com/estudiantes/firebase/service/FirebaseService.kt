@@ -10,13 +10,7 @@ class FirebaseService {
     private val db = FirebaseFirestore.getInstance(Firebase.app("bd-firebase"))
     private val collection = db.collection("usuarios")
 
-    fun sendEstudianteParaFirebase(){
-        val estudiante = EstudianteDtos(
-            id = "2",
-            name = "Antonio",
-            city = "Vendrell",
-            age = 55
-        )
+    fun sendEstudianteParaFirebase(estudiante: EstudianteDtos) {
 
         val documento = estudiante.id?.let { id ->
             collection.document(id.toString())
