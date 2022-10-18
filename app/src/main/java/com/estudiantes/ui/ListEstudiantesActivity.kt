@@ -22,16 +22,16 @@ class ListEstudiantesActivity : AppCompatActivity() {
 
         inicializatorFirebase(this)
 
-        val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
+        /*val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
 
         fab.setOnClickListener {
             viewModel.sendEstudianteToFirebase(
                 EstudianteDtos(
-                    "03", "Jun","", 9
+                    "3", "Pedro","Zaragoza", 56
                 )
             )
 
-        }
+        }*/
 
 
     }
