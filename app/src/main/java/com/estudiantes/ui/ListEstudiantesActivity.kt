@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.estudiantes.R
-import com.estudiantes.firebase.entity.EstudianteDtos
 import com.estudiantes.inicializatorFirebase
+import com.estudiantes.ui.dialog.dialogNewEstudiante
 import com.estudiantes.ui.viewModel.EstudiantesViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -22,16 +22,17 @@ class ListEstudiantesActivity : AppCompatActivity() {
 
         inicializatorFirebase(this)
 
-        /*val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
+        val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
 
         fab.setOnClickListener {
-            viewModel.sendEstudianteToFirebase(
-                EstudianteDtos(
-                    "3", "Pedro","Zaragoza", 56
-                )
-            )
+            //viewModel.sendEstudianteToFirebase(
+               // EstudianteDtos(
+                   // "3", "Pedro","Zaragoza", 56
+               // )
+           // )
 
-        }*/
+            dialogNewEstudiante(this, viewModel)
+        }
 
 
     }
