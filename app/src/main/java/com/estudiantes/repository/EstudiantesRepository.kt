@@ -10,4 +10,8 @@ class EstudiantesRepository {
 
         firebaseService.sendEstudianteParaFirebase(estudiante)
     }
+
+    fun searchFirebase(){
+        firebaseService.recibeEstudianteParaFirebase()
+    }
 }

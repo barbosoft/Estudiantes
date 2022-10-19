@@ -31,7 +31,8 @@ class ListEstudiantesActivity : AppCompatActivity() {
                // )
            // )
 
-            dialogNewEstudiante(this, viewModel)
+            //dialogNewEstudiante(this, viewModel)
+            viewModel.searchEstudianteFirebase()
         }
 
 
