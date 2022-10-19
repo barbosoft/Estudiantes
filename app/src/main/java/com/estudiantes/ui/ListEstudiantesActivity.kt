@@ -2,6 +2,7 @@ package com.estudiantes.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.estudiantes.R
 import com.estudiantes.inicializatorFirebase
@@ -21,6 +22,7 @@ class ListEstudiantesActivity : AppCompatActivity() {
         setContentView(R.layout.list_estudiantes_activity)
 
         inicializatorFirebase(this)
+        viewModel.searchEstudianteFirebase()
 
         val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
 
@@ -31,8 +33,15 @@ class ListEstudiantesActivity : AppCompatActivity() {
                // )
            // )
 
-            //dialogNewEstudiante(this, viewModel)
-            viewModel.searchEstudianteFirebase()
+            dialogNewEstudiante(this, viewModel)
+
+            // Comprovation in LOGcat
+           /* var list = viewModel.getSearchEstudianteFirebase().value
+            for(i in list!!.indices){
+                val estudiante = list[i].name
+
+                Log.i("onCreateTest", "oncreate: Estudiante Nombre: $estudiante")
+            }*/
         }
 
 

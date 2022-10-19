@@ -11,7 +11,7 @@ class EstudiantesRepository {
         firebaseService.sendEstudianteParaFirebase(estudiante)
     }
 
-    fun searchFirebase(){
-        firebaseService.recibeEstudianteParaFirebase()
+    fun searchFirebase() : List<EstudianteDtos>{
+        return firebaseService.recibeEstudianteParaFirebase()
     }
 }
