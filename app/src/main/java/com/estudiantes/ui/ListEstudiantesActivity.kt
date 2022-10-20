@@ -2,7 +2,9 @@ package com.estudiantes.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,27 +30,41 @@ class ListEstudiantesActivity : AppCompatActivity() {
         inicializatorFirebase(this)
         viewModel.searchEstudianteFirebase()
 
+        settingFab()
+        settingAdapter()
+        updateDataAfterTime()
+
+
+    }
+
+    private fun updateDataAfterTime() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (viewModel.getSearchEstudianteFirebase().value?.size!! > 0) {
+                adapter!!.notifyDataSetChanged()
+            }
+
+        }, 3000)
+    }
+
+    private fun settingFab() {
         val fab = findViewById<FloatingActionButton>(R.id.list_estudiantes_activity_fab)
 
         fab.setOnClickListener {
-            //viewModel.sendEstudianteToFirebase(
-               // EstudianteDtos(
-                   // "3", "Pedro","Zaragoza", 56
-               // )
-           // )
+            dialogNewEstudiante(this, viewModel, adapter)
 
-            //dialogNewEstudiante(this, viewModel)
             adapter!!.notifyDataSetChanged()
 
             // Comprovation in LOGcat
-           /* var list = viewModel.getSearchEstudianteFirebase().value
+            /* var list = viewModel.getSearchEstudianteFirebase().value
             for(i in list!!.indices){
                 val estudiante = list[i].name
 
                 Log.i("onCreateTest", "oncreate: Estudiante Nombre: $estudiante")
             }*/
         }
+    }
 
+    private fun settingAdapter() {
         val recyclerView: RecyclerView = findViewById(R.id.list_estudiantes_activity_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -57,9 +73,5 @@ class ListEstudiantesActivity : AppCompatActivity() {
             viewModel
         )
         recyclerView.adapter = adapter
-
-
-
-
     }
 }
