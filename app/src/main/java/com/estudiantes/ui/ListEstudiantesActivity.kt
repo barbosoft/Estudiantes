@@ -43,7 +43,7 @@ class ListEstudiantesActivity : AppCompatActivity() {
                 adapter!!.notifyDataSetChanged()
             }
 
-        }, 3000)
+        }, 10000)
     }
 
     private fun settingFab() {

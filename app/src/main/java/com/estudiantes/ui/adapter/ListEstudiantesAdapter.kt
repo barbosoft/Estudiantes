@@ -12,7 +12,7 @@ import com.estudiantes.R
 import com.estudiantes.ui.dialog.dialogModifyEstudiante
 
 import com.estudiantes.ui.viewModel.EstudiantesViewModel
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class ListEstudiantesAdapter(
@@ -26,6 +26,8 @@ class ListEstudiantesAdapter(
         val nombre: TextView = itemView.findViewById(R.id.list_estudiantes_activity_item_nombre)
         val edad: TextView = itemView.findViewById(R.id.list_estudiantes_activity_item_edad)
         val ciudad: TextView = itemView.findViewById(R.id.list_estudiantes_activity_item_ciudad)
+        val cambiar: FloatingActionButton = itemView.findViewById(R.id.list_estudiantes_activity_item_fab_cambiar)
+        val borrar: FloatingActionButton = itemView.findViewById(R.id.list_estudiantes_activity_item_fab_borrar)
     }
 
     override fun onCreateViewHolder(
@@ -50,6 +52,15 @@ class ListEstudiantesAdapter(
                 //Toast.LENGTH_LONG).show()
                 dialogModifyEstudiante(context, viewModel, this, listAdapter, position)
             }
+
+            holder.cambiar.setOnClickListener {
+                dialogModifyEstudiante(context, viewModel, this, listAdapter, position)
+            }
+
+            holder.borrar.setOnClickListener {
+
+            }
+
         } catch (e: Exception) {
             Log.e("ListEstudiantesAdapter", e.message.toString())
         }
