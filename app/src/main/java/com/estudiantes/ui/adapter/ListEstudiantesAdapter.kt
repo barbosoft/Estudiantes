@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.estudiantes.R
 import com.estudiantes.ui.dialog.dialogModifyEstudiante
@@ -42,22 +41,26 @@ class ListEstudiantesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         try{
-            var listAdapter = list?.value?.get(position)!!
-            holder.nombre.text = listAdapter.name
-            holder.ciudad.text = listAdapter.city
-            holder.edad.text = listAdapter.age.toString()
+            var estudiante = list?.value?.get(position)!!
+            holder.nombre.text = estudiante.name
+            holder.ciudad.text = estudiante.city
+            holder.edad.text = estudiante.age.toString()
 
             holder.itemView.setOnClickListener{
                 //Toast.makeText(context, "${listAdapter.name} ${listAdapter.city} ${listAdapter.age}",
                 //Toast.LENGTH_LONG).show()
-                dialogModifyEstudiante(context, viewModel, this, listAdapter, position)
+                dialogModifyEstudiante(context, viewModel, this, estudiante, position)
             }
 
             holder.cambiar.setOnClickListener {
-                dialogModifyEstudiante(context, viewModel, this, listAdapter, position)
+                dialogModifyEstudiante(context, viewModel, this, estudiante, position)
             }
 
             holder.borrar.setOnClickListener {
+                viewModel.deleteEstudianteToFirebase(estudiante)
+                //viewModel.searchEstudianteFirebase()
+                notifyItemRemoved(position)
+                //notifyDataSetChanged()
 
             }
 

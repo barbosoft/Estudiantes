@@ -28,7 +28,7 @@ class ListEstudiantesActivity : AppCompatActivity() {
         setContentView(R.layout.list_estudiantes_activity)
 
         inicializatorFirebase(this)
-        viewModel.searchEstudianteFirebase()
+        searchingData()
 
         settingFab()
         settingAdapter()
@@ -37,13 +37,17 @@ class ListEstudiantesActivity : AppCompatActivity() {
 
     }
 
+    private fun searchingData() {
+        viewModel.searchEstudianteFirebase()
+    }
+
     private fun updateDataAfterTime() {
         Handler(Looper.getMainLooper()).postDelayed({
             if (viewModel.getSearchEstudianteFirebase().value?.size!! > 0) {
                 adapter!!.notifyDataSetChanged()
             }
 
-        }, 10000)
+        }, 3000)
     }
 
     private fun settingFab() {
